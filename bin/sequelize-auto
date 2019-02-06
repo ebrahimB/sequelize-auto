@@ -19,11 +19,11 @@ var argv = require('yargs')
   .alias('a', 'additional')
   .alias('t', 'tables')
   .alias('T', 'skip-tables')
-  .alias('G', 'camel')
+  .alias('C', 'case')
   .alias('n', 'no-write')
   .alias('s', 'schema')
   .alias('z', 'typescript')
-  .alias('f', 'camel-file-name')
+  .alias('f', 'case-for-file-name')
   .describe('h', 'IP/Hostname for the database.')
   .describe('d', 'Database name.')
   .describe('u', 'Username for database.')
@@ -35,11 +35,11 @@ var argv = require('yargs')
   .describe('a', 'Path to a json file containing model definitions (for all tables) which are to be defined within a model\'s configuration parameter. For more info: https://sequelize.readthedocs.org/en/latest/docs/models-definition/#configuration')
   .describe('t', 'Comma-separated names of tables to import')
   .describe('T', 'Comma-separated names of tables to skip')
-  .describe('G', 'Use camel case to name models and fields')
+  .describe('C', 'Set case to name models and fields ("camel", "pascal", "upper")')
   .describe('n', 'Prevent writing the models to disk.')
   .describe('s', 'Database schema from which to retrieve tables')
   .describe('z', 'Output models as typescript with a definitions file')
-  .describe('f', 'Use camel case for file name')
+  .describe('f', 'Set case for file name ("camel", "pascal", "upper")')
   .argv;
 
 var dir = !argv.n && (argv.o || path.resolve(process.cwd() + '/models'));
@@ -71,10 +71,10 @@ configFile.host = argv.h || configFile.host || 'localhost';
 configFile.storage = argv.d;
 configFile.tables = configFile.tables || (argv.t && argv.t.split(',')) || null;
 configFile.skipTables = configFile.skipTables || (argv.T && argv.T.split(',')) || null;
-configFile.camelCase = !!argv.C;
+configFile.case = argv.C || null; 
 configFile.schema = argv.s || configFile.schema;
 configFile.typescript = argv.z || configFile.typescript || false;
-configFile.camelCaseForFileName = argv.f || configFile.camelCaseForFileName || false;
+configFile.caseForFileName = argv.f || configFile.caseForFileName || false;
 
 function getDefaultPort(dialect) {
     switch (dialect.toLowerCase()) {
