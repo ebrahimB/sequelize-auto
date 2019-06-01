@@ -4,6 +4,12 @@ All visible changes to this project will be documented in this file as of versio
 
 ## Master
 
+### Added
+
+* Support for Sequelize v5
+
+## [0.5.00] - 2019-6-01
+
 ### Fixed
 
 ## [0.4.29] - 2017-10-23
