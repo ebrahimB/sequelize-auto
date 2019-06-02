@@ -1,6 +1,6 @@
 {
   "name": "sequelize-auto",
-  "version": "0.4.29",
+  "version": "0.5.00",
   "description": "Automatically generate bare sequelize models from your database.",
   "main": "index",
   "keywords": [
@@ -45,14 +45,16 @@
   "engines": {
     "node": ">=0.10"
   },
-  "author": "Daniel Durante <me@danieldurante.com>",
+  "author": "Daniel Durante <me@danieldurante.com>, Ebrahim Behbahani",
   "license": "MIT",
   "dependencies": {
     "async": "^2.1.5",
     "eslint": "^3.19.0",
     "graceful-fs-extra": "^2.0.0",
+    "lodash": "^4.17.11",
+    "mysql2": "^1.6.5",
     "mkdirp": "^0.5.1",
-    "sequelize": "^3.30.2",
+    "sequelize": "^5.8.7",
     "yargs": "^8.0.1"
   },
   "devDependencies": {
